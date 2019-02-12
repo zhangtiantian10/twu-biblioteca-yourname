@@ -7,12 +7,26 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         welcomeCustomer();
-        List<Book> books = new ArrayList<Book>();
-        library.setBooks(books);
-        library.printBooks();
+        switch (selectMenu()) {
+            case 1:
+                List<Book> books = new ArrayList<Book>();
+                library.setBooks(books);
+                library.printBooks();
+                break;
+        }
+
     }
 
     public static void welcomeCustomer() {
         System.out.println("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!");
+    }
+
+    public static int selectMenu() {
+        System.out.println("Please select an option:");
+        System.out.println("1.List of books");
+
+        Scanner scanner = new Scanner(System.in);
+        int option = scanner.nextInt();
+        return option;
     }
 }

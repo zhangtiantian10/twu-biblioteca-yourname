@@ -21,6 +21,7 @@ public class Library {
     }
 
     public void printBooks() {
+        System.out.println("Title Author Public-Year");
         if (books.size() == 0)
             System.out.println("");
         else

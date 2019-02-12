@@ -29,7 +29,7 @@ public class LibraryTest {
 
         library.printBooks();
 
-        assertEquals("Book Title  \n", outContent.toString());
+        assertEquals("Title Author Public-Year\nBook Title  \n", outContent.toString());
     }
 
     @Test
@@ -39,14 +39,14 @@ public class LibraryTest {
 
         library.printBooks();
 
-        assertEquals("One  \nTwo  \n", outContent.toString());
+        assertEquals("Title Author Public-Year\nOne  \nTwo  \n", outContent.toString());
     }
 
     @Test
     public void printNothingWhenNotBook() {
         library.printBooks();
 
-        assertEquals("\n", outContent.toString());
+        assertEquals("Title Author Public-Year\n\n", outContent.toString());
     }
 
     @Test
@@ -55,6 +55,6 @@ public class LibraryTest {
 
         library.printBooks();
 
-        assertEquals("Book title Zhang 2018-01-01\n", outContent.toString());
+        assertEquals("Title Author Public-Year\nBook title Zhang 2018-01-01\n", outContent.toString());
     }
 }
