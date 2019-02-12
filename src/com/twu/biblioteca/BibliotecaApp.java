@@ -7,14 +7,19 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         welcomeCustomer();
-        switch (selectMenu()) {
-            case 1:
-                List<Book> books = new ArrayList<Book>();
-                library.setBooks(books);
-                library.printBooks();
-                break;
+        boolean flag = true;
+        while (flag) {
+            switch (selectMenu()) {
+                case 1:
+                    List<Book> books = new ArrayList<Book>();
+                    library.setBooks(books);
+                    library.printBooks();
+                    flag = false;
+                    break;
+                default:
+                    System.out.println("Please select a valid option!");
+            }
         }
-
     }
 
     public static void welcomeCustomer() {
