@@ -11,7 +11,7 @@ public class BibliotecaApp {
         while (flag) {
             switch (selectMenu()) {
                 case 1:
-                    List<Book> books = new ArrayList<Book>();
+                    List<Book> books = getBooks();
                     library.setBooks(books);
                     library.printBooks();
                     flag = false;
@@ -33,5 +33,14 @@ public class BibliotecaApp {
         Scanner scanner = new Scanner(System.in);
         int option = scanner.nextInt();
         return option;
+    }
+
+    private static List<Book> getBooks() {
+        List<Book> books = new ArrayList<Book>();
+        for (int i = 1; i < 5; i ++) {
+            books.add(new Book("Book" + i, "zhang", "2017"));
+        }
+
+        return books;
     }
 }
