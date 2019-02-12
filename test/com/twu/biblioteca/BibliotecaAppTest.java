@@ -10,7 +10,6 @@ import static org.junit.Assert.assertEquals;
 
 public class BibliotecaAppTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final PrintStream originalOut = System.out;
 
     @Before
     public void setUpStreams() {
