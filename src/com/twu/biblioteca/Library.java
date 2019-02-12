@@ -21,11 +21,11 @@ public class Library {
     }
 
     public void printBooks() {
-        String printTitle = "";
-        for (Book book : books) {
-            printTitle = book.getTitle();
-        }
-
-        System.out.println(printTitle);
+        if (books.size() == 0)
+            System.out.println("");
+        else
+            for (Book book : books) {
+                System.out.println(book.getTitle() + " " + book.getAuthor() + " " + book.getYear());
+            }
     }
 }
