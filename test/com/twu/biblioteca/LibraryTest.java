@@ -57,4 +57,12 @@ public class LibraryTest {
 
         assertEquals("Title Author Public-Year\nBook title Zhang 2018-01-01\n", outContent.toString());
     }
+
+    @Test
+    public void notPrintWhenBookIsCheckout() {
+        books.add(new Book("Book title", "Zhang", "2018-01-01", true));
+        library.printBooks();
+
+        assertEquals("Title Author Public-Year\n", outContent.toString());
+    }
 }
