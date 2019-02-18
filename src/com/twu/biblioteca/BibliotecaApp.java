@@ -7,7 +7,6 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         welcomeCustomer();
-        boolean flag = true;
         List<Book> books = getBooks();
         library.setBooks(books);
 
@@ -24,7 +23,10 @@ public class BibliotecaApp {
                     break;
                 case 3:
                     name = inputBookName();
-                    library.returnBook(name);
+                    result = library.returnBook(name);
+                    message = result ? "Thank you for returning the book." : "That is not valid book to return.";
+
+                    System.out.println(message);
                     break;
                 case 4:
                     return;
