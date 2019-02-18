@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class LibraryTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -64,5 +66,25 @@ public class LibraryTest {
         library.printBooks();
 
         assertEquals("Title Author Public-Year\n", outContent.toString());
+    }
+
+    @Test
+    public void returnTrueWhenBookCheckoutSuccess() {
+        books.add(new Book("Book title", "Zhang", "2018-01-01"));
+        books.add(new Book("Book title1", "Zhang", "2018-01-01"));
+        books.add(new Book("Book title2", "Zhang", "2018-01-01"));
+
+        boolean result = library.checkoutBook("Book title");
+
+        assertTrue(result);
+    }
+
+    @Test
+    public void returnFalseWhenLibraryNotHaveCheckoutBook() {
+        books.add(new Book("Book title", "Zhang", "2018-01-01"));
+
+        boolean result = library.checkoutBook("Book title1");
+
+        assertFalse(result);
     }
 }
