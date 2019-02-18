@@ -3,10 +3,11 @@ package com.twu.biblioteca;
 import java.util.*;
 
 public class BibliotecaApp {
-    private static Library library = new Library();
 
     public static void main(String[] args) {
         welcomeCustomer();
+
+        Library library = new Library();
         List<Book> books = getBooks();
         library.setBooks(books);
 
@@ -17,16 +18,11 @@ public class BibliotecaApp {
                     break;
                 case 2:
                     String name = inputBookName();
-                    boolean result = library.checkoutBook(name);
-                    String message = result ? "Thank you! Enjoy the book" : "Sorry, that book is not available";
-                    System.out.println(message);
+                    checkoutBook(name, library);
                     break;
                 case 3:
                     name = inputBookName();
-                    result = library.returnBook(name);
-                    message = result ? "Thank you for returning the book." : "That is not valid book to return.";
-
-                    System.out.println(message);
+                    returnBook(name, library);
                     break;
                 case 4:
                     return;
@@ -35,6 +31,19 @@ public class BibliotecaApp {
             }
         }
 
+    }
+
+    public static void returnBook(String name, Library library) {
+        boolean result = library.returnBook(name);
+        String message = result ? "Thank you for returning the book." : "That is not valid book to return.";
+
+        System.out.println(message);
+    }
+
+    public static void checkoutBook(String name, Library library) {
+        boolean result = library.checkoutBook(name);
+        String message = result ? "Thank you! Enjoy the book" : "Sorry, that book is not available";
+        System.out.println(message);
     }
 
     public static void welcomeCustomer() {
@@ -54,7 +63,7 @@ public class BibliotecaApp {
     }
 
     public static String inputBookName() {
-        System.out.println("Please input checkout book name:");
+        System.out.println("Please input book name:");
         Scanner scanner = new Scanner(System.in);
         String name = scanner.next();
 
