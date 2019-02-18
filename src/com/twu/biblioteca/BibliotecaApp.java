@@ -8,18 +8,27 @@ public class BibliotecaApp {
     public static void main(String[] args) {
         welcomeCustomer();
         boolean flag = true;
-        while (flag) {
+        List<Book> books = getBooks();
+        library.setBooks(books);
+
+        while (true) {
             switch (selectMenu()) {
                 case 1:
-                    List<Book> books = getBooks();
-                    library.setBooks(books);
                     library.printBooks();
-                    flag = false;
                     break;
+                case 2:
+                    String name = inputBookName();
+                    boolean result = library.checkoutBook(name);
+                    String message = result ? "Thank you! Enjoy the book" : "Sorry, that book is not available";
+                    System.out.println(message);
+                    break;
+                case 3:
+                    return;
                 default:
                     System.out.println("Please select a valid option!");
             }
         }
+
     }
 
     public static void welcomeCustomer() {
@@ -29,10 +38,20 @@ public class BibliotecaApp {
     public static int selectMenu() {
         System.out.println("Please select an option:");
         System.out.println("1.List of books");
+        System.out.println("2.Checkout book");
+        System.out.println("3.Exit");
 
         Scanner scanner = new Scanner(System.in);
         int option = scanner.nextInt();
         return option;
+    }
+
+    public static String inputBookName() {
+        System.out.println("Please input checkout book name:");
+        Scanner scanner = new Scanner(System.in);
+        String name = scanner.next();
+
+        return name;
     }
 
     private static List<Book> getBooks() {

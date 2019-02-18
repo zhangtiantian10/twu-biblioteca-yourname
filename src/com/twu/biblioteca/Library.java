@@ -26,7 +26,21 @@ public class Library {
             System.out.println("");
         else
             for (Book book : books) {
-                System.out.println(book.getTitle() + " " + book.getAuthor() + " " + book.getYear());
+                if (!book.isCheckOut())
+                    System.out.println(book.getTitle() + " " + book.getAuthor() + " " + book.getYear());
             }
+    }
+
+    public boolean checkoutBook(String title) {
+        boolean flag = false;
+        for (Book book : books) {
+            if (book.getTitle().equals(title) && !book.isCheckOut()) {
+                book.setCheckOut(true);
+                flag = true;
+                break;
+            }
+        }
+
+        return flag;
     }
 }
