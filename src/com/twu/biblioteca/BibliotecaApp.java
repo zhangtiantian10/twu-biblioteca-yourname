@@ -23,6 +23,10 @@ public class BibliotecaApp {
                     System.out.println(message);
                     break;
                 case 3:
+                    name = inputBookName();
+                    library.returnBook(name);
+                    break;
+                case 4:
                     return;
                 default:
                     System.out.println("Please select a valid option!");
@@ -39,7 +43,8 @@ public class BibliotecaApp {
         System.out.println("Please select an option:");
         System.out.println("1.List of books");
         System.out.println("2.Checkout book");
-        System.out.println("3.Exit");
+        System.out.println("3.Return book");
+        System.out.println("4.Exit");
 
         Scanner scanner = new Scanner(System.in);
         int option = scanner.nextInt();

@@ -43,4 +43,17 @@ public class Library {
 
         return flag;
     }
+
+    public boolean returnBook(String title) {
+        boolean flag = false;
+        for (Book book : books) {
+            if (book.getTitle().equals(title) && book.isCheckOut()) {
+                book.setCheckOut(false);
+                flag = true;
+                break;
+            }
+        }
+
+        return flag;
+    }
 }

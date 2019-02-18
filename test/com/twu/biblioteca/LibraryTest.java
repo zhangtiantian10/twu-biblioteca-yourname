@@ -87,4 +87,22 @@ public class LibraryTest {
 
         assertFalse(result);
     }
+
+    @Test
+    public void returnFalseWhenLibraryNotHaveReturnBook() {
+        books.add(new Book("Book title", "Zhang", "2018-01-01"));
+
+        boolean result = library.returnBook("Book title1");
+
+        assertFalse(result);
+    }
+
+    @Test
+    public void returnTrueWhenReturnBookSuccess() {
+        books.add(new Book("Book title", "Zhang", "2018-01-01", true));
+
+        boolean result = library.returnBook("Book title");
+
+        assertTrue(result);
+    }
 }
